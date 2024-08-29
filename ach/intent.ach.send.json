@@ -155,8 +155,16 @@
                     "type": "string",
                     "minLength": 4,
                     "maxLength": 4
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
                   }
-                }
+                },
+                "required": [
+                  "charge",
+                  "description"
+                ]
               }
             },
             "required": [
@@ -174,10 +182,6 @@
       "custom": {
         "type": "object",
         "properties": {
-          "description": {
-            "type": "string",
-            "minLength": 1
-          },
           "ip": {
             "type": "string"
           },
@@ -189,7 +193,6 @@
           }
         },
         "required": [
-          "description",
           "ip",
           "deviceName",
           "deviceHash"

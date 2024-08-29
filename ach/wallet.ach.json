@@ -16,7 +16,10 @@
             "type": "string",
             "minLength": 1,
             "maxLength": 9
-          }
+          },
+        "required": [
+          "nit"
+        ]
       }
     },
     "required": [
