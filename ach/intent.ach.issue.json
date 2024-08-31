@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+      "handle": {
+        "type": "string"
+      },
+      "claims": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "issue"
+                ]
+              },
+              "target": {
+                "type": "object",
+                "properties": {
+                  "handle": {
+                    "type": "string",
+                    "pattern": "^[a-zA-Z0-9_\\-+.]+$"
+                  }
+                },
+                "required": [
+                  "handle"
+                ]
+              },
+              "symbol": {
+                "type": "object",
+                "properties": {
+                  "handle": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "handle"
+                ]
+              },
+              "amount": {
+                "type": "integer"
+              }  
+            },
+            "required": [
+              "action",
+              "target",
+              "symbol",
+              "amount"
+            ]
+          }
+        ],
+        "additionalItems": false,
+        "minItems": 1
+      }
+    },
+    "required": [
+      "handle",
+      "claims"
+    ]
+  }

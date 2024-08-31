@@ -21,7 +21,7 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "^(svgs|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "^(svgs|cacc|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
@@ -33,8 +33,7 @@
                       "entityType": {
                         "type": "string",
                         "enum": [
-                          "individual",
-                          "business"
+                          "individual"
                         ]
                       },
                       "idType": {
@@ -80,7 +79,7 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "(svgs|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "(svgs|cacc|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",

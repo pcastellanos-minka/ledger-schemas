@@ -1,0 +1,129 @@
+{
+    "hash": "efab2d258ea29238c97a23551099a814fceb88098a8e82d5b58a99dbe7e08ff0",
+    "data": {
+      "handle": "qQgePWm0HnJzdPMPLDJX5",
+      "claims": [
+        {
+          "action": "transfer",
+          "amount": 12000000,
+          "custom": {
+            "charge": "DEBT",
+            "description": "pago cena"
+          },
+          "source": {
+            "custom": {
+              "name": "Paula Castellanos",
+              "email": "paula@a.com",
+              "idType": "nidn",
+              "mobile": "3123045675",
+              "idNumber": "12323443",
+              "entityType": "individual"
+            },
+            "handle": "svgs:2343245@davivienda.co"
+          },
+          "symbol": {
+            "handle": "cop"
+          },
+          "target": {
+            "custom": {
+              "name": "Juan Ojeda",
+              "email": "juan@a.co",
+              "idType": "nidn",
+              "mobile": "3234567654",
+              "idNumber": "1456477",
+              "entityType": "individual"
+            },
+            "handle": "svgs:12435678@bbva.co"
+          }
+        }
+      ],
+      "schema": "intent.send.regulatory",
+      "custom": {
+        "ip": "192.91.15.15",
+        "deviceHash": "b3a8ecb3741b21f006065f2ecbe699205877723cb94a0e9a1eee7f3b9e7678377",
+        "deviceName": "Paula's phone"
+      },
+      "access": [
+        {
+          "action": "any",
+          "signer": {
+            "public": "hAZGfDNZR8b7Clj0SBdoeS5GNGcngrkpDYHknrA8tAM="
+          }
+        },
+        {
+          "action": "read",
+          "bearer": {
+            "$signer": {
+              "public": "hAZGfDNZR8b7Clj0SBdoeS5GNGcngrkpDYHknrA8tAM="
+            }
+          }
+        }
+      ],
+      "config": {
+        "commit": "auto"
+      }
+    },
+    "luid": "$int.mMJ4LDL_-kcjwRJFj",
+    "meta": {
+      "proofs": [
+        {
+          "custom": {
+            "moment": "2024-08-31T18:57:28.495Z",
+            "status": "created"
+          },
+          "digest": "41fe132a52ff66a7d1466d4a77788eef539b380996a3581627553d14f3d110bd",
+          "method": "ed25519-v2",
+          "public": "hAZGfDNZR8b7Clj0SBdoeS5GNGcngrkpDYHknrA8tAM=",
+          "result": "zYysaMWCniYWyr0+pBCoZfP1bADXaavyVRqj6IZUVy6f2zWVWhZLOMpqMakwGWILKhrIr2ss0xlLEFsWu11HAg=="
+        },
+        {
+          "custom": {
+            "luid": "$int.mMJ4LDL_-kcjwRJFj",
+            "moment": "2024-08-31T18:57:28.850Z",
+            "status": "created"
+          },
+          "digest": "34bfdce41f8a8b4689f9e77a09f376c3b785225194c5bd4bff2af3fe24233e76",
+          "method": "ed25519-v2",
+          "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+          "result": "ZUqWyDISoaYUhNq3+7ogyx51Rw/Qr6UH5kRH12nhidpl0//tuW8f+XrylvPlSE1Guai631aMJfvJbcr08Z7TAw=="
+        },
+        {
+          "custom": {
+            "moment": "2024-08-31T18:57:28.951Z",
+            "status": "prepared"
+          },
+          "digest": "d3ab8f4bf7275b88bcd82bacf1af7bdc13914c939f93216273af8ff7157512bb",
+          "method": "ed25519-v2",
+          "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+          "result": "3zVzKyvH8t3El/WJfxM85xIiIKzxO2DbZtiLHQxylxKLPDFwnh/nlLJ+jawo1fDxg0VjXVKCRXpLhGvigp/hBw=="
+        },
+        {
+          "custom": {
+            "moment": "2024-08-31T18:57:29.092Z",
+            "status": "committed"
+          },
+          "digest": "d1f67cc1b8d0086b8ba1b6d33eebefc6bf26d61e43392d1ddd73eec6c09b568b",
+          "method": "ed25519-v2",
+          "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+          "result": "A7TzhFuNgVJB5iWT0pDl+2PXLaftZCbR0P+51E0CXTS5r+T2Eu6Pho7PZRCOoblcJ+OXYwBdIkh2kchtNYeTDg=="
+        },
+        {
+          "custom": {
+            "moment": "2024-08-31T18:57:29.157Z",
+            "status": "completed"
+          },
+          "digest": "d31e1fc9684abd6529bd7b11f9d841219cc4e7ab4f3f7b17469c8e7412e2eae4",
+          "method": "ed25519-v2",
+          "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+          "result": "2RLHyzCT/paJa400xBZVVKtHQMlFW18/SNeqrVeyX4YIU+wxIz2xe0SC5TdFZ/SdwJtLOEsyKnOO/tYKiwlDCA=="
+        }
+      ],
+      "routed": true,
+      "status": "completed",
+      "thread": "opAUt1Y11adxlTfGB",
+      "moment": "2024-08-31T18:57:28.858Z",
+      "owners": [
+        "hAZGfDNZR8b7Clj0SBdoeS5GNGcngrkpDYHknrA8tAM="
+      ]
+    }
+  }
