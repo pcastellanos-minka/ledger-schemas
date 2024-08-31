@@ -190,6 +190,8 @@
           "deviceHash": {
             "type": "string"
           }
+
+
         },
         "required": [
           "ip",

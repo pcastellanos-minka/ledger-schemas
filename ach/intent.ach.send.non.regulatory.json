@@ -1,0 +1,214 @@
+{
+    "type": "object",
+    "properties": {
+      "handle": {
+        "type": "string"
+      },
+      "claims": {
+        "type": "array",
+        "items": [
+          {
+            "type": "object",
+            "properties": {
+              "action": {
+                "type": "string",
+                "enum": [
+                  "transfer"
+                ]
+              },
+              "source": {
+                "type": "object",
+                "properties": {
+                  "handle": {
+                    "type": "string",
+                    "pattern": "^(svgs|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                  },
+                  "custom": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "entityType": {
+                        "type": "string",
+                        "enum": [
+                          "individual",
+                          "business"
+                        ]
+                      },
+                      "idType": {
+                        "type": "string",
+                        "enum": [
+                         "nidn",
+                          "arnu",
+                          "txid",
+                          "ccpt"
+                        ]
+                      },
+                      "idNumber": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 18
+                      },
+                      "email": {
+                        "type": "string",
+                        "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+                      },
+                      "mobile":{
+                        "type": "string",
+                        "pattern":"^[0-9]{10}$"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "entityType",
+                      "idType",
+                      "idNumber",
+                      "email",
+                      "mobile"
+                    ]
+                  }
+                },
+                "required": [
+                  "handle",
+                  "custom"
+                ]
+              },
+              "target": {
+                "type": "object",
+                "properties": {
+                  "handle": {
+                    "type": "string",
+                    "pattern": "(svgs|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                  },
+                  "custom": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "entityType": {
+                        "type": "string",
+                        "enum": [
+                          "individual",
+                          "business"
+                        ]
+                      },
+                      "idType": {
+                        "type": "string",
+                        "enum": [
+                          "nidn",
+                          "arnu",
+                          "txid",
+                          "ccpt"
+                        ]
+                      },
+                      "idNumber": {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 18
+                      },
+                      "email": {
+                        "type": "string",
+                        "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+                      },
+                      "mobile":{
+                        "type": "string",
+                        "pattern":"^[0-9]{10}$"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "entityType",
+                      "idType",
+                      "idNumber",
+                      "email",
+                      "mobile"
+                    ]
+                  }
+                },
+                "required": [
+                  "handle",
+                  "custom"
+                ]
+              },
+              "symbol": {
+                "type": "object",
+                "properties": {
+                  "handle": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "handle"
+                ]
+              },
+              "amount": {
+                "type": "integer"
+              },
+              "custom":{
+                "type": "object",
+                "properties": {
+                  "charge": {
+                    "type": "string",
+                    "enum": ["DEBT", "CRED", "SHAR","SLEV"]
+                  },
+                  "description": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "charge",
+                  "description"
+                ]
+              }
+            },
+            "required": [
+              "action",
+              "source",
+              "target",
+              "amount", 
+              "custom"
+            ]
+          }
+        ],
+        "additionalItems": false,
+        "minItems": 1
+      },
+      "custom": {
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "string"
+          },
+          "ip": {
+            "type": "string"
+          },
+          "deviceName": {
+            "type": "string"
+          },
+          "deviceHash": {
+            "type": "string"
+          },
+          "useCase": {
+            "type": "string",
+            "enum": ["B2P","B2G", "B2B"]
+          }
+        },
+        "required": [
+          "ip",
+          "deviceName",
+          "deviceHash",
+          "useCase"
+        ]
+      }
+    },
+    "required": [
+      "handle",
+      "claims",
+      "custom"
+    ]
+  }
