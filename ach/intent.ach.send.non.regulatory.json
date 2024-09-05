@@ -21,7 +21,7 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "^(svgs|cacc|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "^(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
@@ -41,9 +41,7 @@
                         "type": "string",
                         "enum": [
                          "nidn",
-                          "arnu",
-                          "txid",
-                          "ccpt"
+                          "txid"
                         ]
                       },
                       "idNumber": {
@@ -61,18 +59,12 @@
                       }
                     },
                     "required": [
-                      "name",
-                      "entityType",
-                      "idType",
-                      "idNumber",
-                      "email",
-                      "mobile"
+                      "name"
                     ]
                   }
                 },
                 "required": [
-                  "handle",
-                  "custom"
+                  "handle"
                 ]
               },
               "target": {
@@ -80,7 +72,7 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "(svgs|cacc|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
@@ -101,9 +93,7 @@
                         "type": "string",
                         "enum": [
                           "nidn",
-                          "arnu",
-                          "txid",
-                          "ccpt"
+                          "txid"
                         ]
                       },
                       "idNumber": {
@@ -121,18 +111,12 @@
                       }
                     },
                     "required": [
-                      "name",
-                      "entityType",
-                      "idType",
-                      "idNumber",
-                      "email",
-                      "mobile"
+                      "name"
                     ]
                   }
                 },
                 "required": [
-                  "handle",
-                  "custom"
+                  "handle"
                 ]
               },
               "symbol": {
@@ -160,19 +144,14 @@
                     "type": "string",
                     "minLength": 1
                   }
-                },
-                "required": [
-                  "charge",
-                  "description"
-                ]
+                }
               }
             },
             "required": [
               "action",
               "source",
               "target",
-              "amount", 
-              "custom"
+              "amount"
             ]
           }
         ],
@@ -209,7 +188,6 @@
     },
     "required": [
       "handle",
-      "claims",
-      "custom"
+      "claims"
     ]
   }
