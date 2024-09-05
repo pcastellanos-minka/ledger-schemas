@@ -21,7 +21,7 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "^(svgs|cacc|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "^(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
@@ -39,10 +39,8 @@
                       "idType": {
                         "type": "string",
                         "enum": [
-                         "nidn",
-                          "arnu",
-                          "txid",
-                          "ccpt"
+                          "nidn",
+                          "txid"
                         ]
                       },
                       "idNumber": {
@@ -60,18 +58,12 @@
                       }
                     },
                     "required": [
-                      "name",
-                      "entityType",
-                      "idType",
-                      "idNumber",
-                      "email",
-                      "mobile"
+                      "name"
                     ]
                   }
                 },
                 "required": [
-                  "handle",
-                  "custom"
+                  "handle"
                 ]
               },
               "target": {
@@ -79,7 +71,7 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "(svgs|cacc|tran|loan|card):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
@@ -99,9 +91,7 @@
                         "type": "string",
                         "enum": [
                           "nidn",
-                          "arnu",
-                          "txid",
-                          "ccpt"
+                          "txid"
                         ]
                       },
                       "idNumber": {
@@ -119,18 +109,12 @@
                       }
                     },
                     "required": [
-                      "name",
-                      "entityType",
-                      "idType",
-                      "idNumber",
-                      "email",
-                      "mobile"
+                      "name"
                     ]
                   }
                 },
                 "required": [
-                  "handle",
-                  "custom"
+                  "handle"
                 ]
               },
               "symbol": {
@@ -160,7 +144,6 @@
                   }
                 },
                 "required": [
-                  "charge",
                   "description"
                 ]
               }
@@ -169,8 +152,7 @@
               "action",
               "source",
               "target",
-              "amount", 
-              "custom"
+              "amount"
             ]
           }
         ],
@@ -188,20 +170,26 @@
           },
           "deviceHash": {
             "type": "string"
+          },
+          "spbviSource": {
+            "type": "enum",
+            "enum": ["TFY", "ENT", "VIS"]
+          },
+          "spbviTarget": {
+            "type": "enum",
+            "enum": ["TFY", "ENT", "VIS"]
           }
 
 
         },
         "required": [
-          "ip",
-          "deviceName",
-          "deviceHash"
+          "spbviSource",
+          "spbviTarget"
         ]
       }
     },
     "required": [
       "handle",
-      "claims",
-      "custom"
+      "claims"
     ]
   }
