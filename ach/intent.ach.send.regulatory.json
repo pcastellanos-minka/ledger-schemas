@@ -172,15 +172,13 @@
             "type": "string"
           },
           "spbviSource": {
-            "type": "enum",
+            "type": "string",
             "enum": ["TFY", "ENT", "VIS"]
           },
           "spbviTarget": {
-            "type": "enum",
+            "type": "string",
             "enum": ["TFY", "ENT", "VIS"]
           }
-
-
         },
         "required": [
           "spbviSource",
