@@ -28,7 +28,8 @@
                     "properties": {
                       "name": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "maxLength": 140
                       },
                       "entityType": {
                         "type": "string",
@@ -40,8 +41,9 @@
                       "idType": {
                         "type": "string",
                         "enum": [
-                         "nidn",
-                          "txid"
+                          "nidn",
+                          "txid",
+                          "othr"
                         ]
                       },
                       "idNumber": {
@@ -79,7 +81,8 @@
                     "properties": {
                       "name": {
                         "type": "string",
-                        "minLength": 1
+                        "minLength": 1,
+                        "maxLength": 140
                       },
                       "entityType": {
                         "type": "string",
@@ -93,7 +96,8 @@
                         "type": "string",
                         "enum": [
                           "nidn",
-                          "txid"
+                          "txid",
+                          "othr"
                         ]
                       },
                       "idNumber": {
@@ -142,7 +146,8 @@
                   },
                   "description": {
                     "type": "string",
-                    "minLength": 1
+                    "minLength": 1,
+                    "maxLength": 35
                   }
                 }
               }
@@ -161,9 +166,6 @@
       "custom": {
         "type": "object",
         "properties": {
-          "messageId": {
-            "type": "string"
-          },
           "ip": {
             "type": "string"
           },
@@ -173,17 +175,19 @@
           "deviceHash": {
             "type": "string"
           },
-          "useCase": {
+          "spbviSource": {
             "type": "string",
-            "enum": ["B2P","B2G", "B2B"]
+            "enum": ["TFY", "ENT", "VIS"]
+          },
+          "spbviTarget": {
+            "type": "string",
+            "enum": ["TFY", "ENT", "VIS"]
+          },
+          "channel": {
+            "type": "string",
+            "enum": ["web", "mobile"]
           }
-        },
-        "required": [
-          "ip",
-          "deviceName",
-          "deviceHash",
-          "useCase"
-        ]
+        }
       }
     },
     "required": [

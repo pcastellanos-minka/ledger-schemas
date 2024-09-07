@@ -1,0 +1,157 @@
+{
+    "type": "object",
+    "properties": {
+      "claims": {
+        "additionalItems": false,
+        "items": [
+          {
+            "properties": {
+              "action": {
+                "enum": [
+                  "transfer"
+                ],
+                "type": "string"
+              },
+              "amount": {
+                "type": "integer"
+              },
+              "source": {
+                "properties": {
+                  "custom": {
+                    "properties": {
+                      "entityType": {
+                        "enum": [
+                          "individual",
+                          "business"
+                        ],
+                        "type": "string"
+                      },
+                      "idNumber": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "idType": {
+                        "enum": [
+                          "txid",
+                          "ccpt",
+                          "nidn"
+                        ],
+                        "type": "string"
+                      },
+                      "name": {
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "handle": {
+                    "pattern": "^(svgs|tran):\\d+@[a-zA-Z0-9_\\-+.]+$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "handle"
+                ],
+                "type": "object"
+              },
+              "symbol": {
+                "properties": {
+                  "handle": {
+                    "enum": [
+                      "usd",
+                      "eur"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "handle"
+                ],
+                "type": "object"
+              },
+              "target": {
+                "properties": {
+                  "custom": {
+                    "properties": {
+                      "entityType": {
+                        "enum": [
+                          "individual",
+                          "business"
+                        ],
+                        "type": "string"
+                      },
+                      "idNumber": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "idType": {
+                        "enum": [
+                          "txid",
+                          "ccpt",
+                          "nidn"
+                        ],
+                        "type": "string"
+                      },
+                      "name": {
+                        "minLength": 1,
+                        "type": "string"
+                      }
+                    },
+                    "type": "object"
+                  },
+                  "handle": {
+                    "pattern": "^(svgs|tran|loan|cc):\\d+@[a-zA-Z0-9_\\-+.]+$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "handle"
+                ],
+                "type": "object"
+              }
+            },
+            "required": [
+              "action",
+              "source",
+              "target",
+              "symbol",
+              "amount"
+            ],
+            "type": "object"
+          }
+        ],
+        "minItems": 1,
+        "type": "array"
+      },
+      "config": {
+        "properties": {
+          "commit": {
+            "enum": [
+              "auto"
+            ],
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "custom": {
+        "properties": {
+          "description": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "title": "",
+        "type": "object"
+      },
+      "handle": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "handle",
+      "claims"
+    ],
+    "title": "Transfer"
+  }
