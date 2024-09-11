@@ -1,0 +1,48 @@
+{
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "detail": {
+                "type": "string",
+                "enum": ["T110"]
+            },
+            "status": {
+                "type": "string",
+                "enum": ["initiated"]
+            },
+            "moment": {
+                "type": "string",
+                "format": "date-time"
+            },
+            "deviceName": {
+                "type": "string"
+            },
+            "deviceHash": {
+                "type": "string"
+            },
+            "deviceIp": {
+                "type": "string",
+                "format": "ipv4"
+            },
+            "deviceType": {
+                "type": "string"
+            },
+            "anchorResolution": {
+                "type": "string",
+                "enum": ["qr", "anchor"]
+            }
+        },
+        "required": [
+            "detail",
+            "status",
+            "moment",
+            "deviceName",
+            "deviceHash",
+            "deviceIp",
+            "deviceType",
+            "anchorResolution"
+        ],
+        "additionalProperties": false
+    }
+}

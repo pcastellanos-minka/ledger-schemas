@@ -26,19 +26,19 @@
                   "custom": {
                     "type": "object",
                     "properties": {
-                      "name": {
+                      "personName": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 140
                       },
-                      "entityType": {
+                      "personType": {
                         "type": "string",
                         "enum": [
                           "individual",
                           "business"
                         ]
                       },
-                      "idType": {
+                      "personDocumentType": {
                         "type": "string",
                         "enum": [
                           "nidn",
@@ -46,16 +46,16 @@
                           "othr"
                         ]
                       },
-                      "idNumber": {
+                      "personDocumentNumber": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 18
                       },
-                      "email": {
+                      "personContactEmail": {
                         "type": "string",
                         "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
                       },
-                      "mobile":{
+                      "personContactTel":{
                         "type": "string",
                         "pattern":"^[0-9]{10}$"
                       }
@@ -74,25 +74,25 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "^(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
                     "properties": {
-                      "name": {
+                      "personName": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 140
                       },
-                      "entityType": {
-                        "type": "string",
+                      "personType": {
+                        "typ": "string",
                         "enum": [
                           "individual",
                           "business",
                           "government"
                         ]
                       },
-                      "idType": {
+                      "personDocumentType": {
                         "type": "string",
                         "enum": [
                           "nidn",
@@ -100,22 +100,26 @@
                           "othr"
                         ]
                       },
-                      "idNumber": {
+                      "personDocumentNumber": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 18
                       },
-                      "email": {
+                      "personContactEmail": {
                         "type": "string",
                         "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
                       },
-                      "mobile":{
+                      "personContactTel":{
                         "type": "string",
                         "pattern":"^[0-9]{10}$"
+                      },
+                      "anchor": {
+                        "type": "string",
+                        "pattern": "^(tel|id|email|code)(@?[a-zA-Z0-9]+)$"
                       }
                     },
                     "required": [
-                      "name"
+                      "personName"
                     ]
                   }
                 },
@@ -140,10 +144,6 @@
               "custom":{
                 "type": "object",
                 "properties": {
-                  "charge": {
-                    "type": "string",
-                    "enum": ["DEBT", "CRED", "SHAR","SLEV"]
-                  },
                   "description": {
                     "type": "string",
                     "minLength": 1,
@@ -160,34 +160,7 @@
             ]
           }
         ],
-        "additionalItems": false,
         "minItems": 1
-      },
-      "custom": {
-        "type": "object",
-        "properties": {
-          "ip": {
-            "type": "string"
-          },
-          "deviceName": {
-            "type": "string"
-          },
-          "deviceHash": {
-            "type": "string"
-          },
-          "spbviSource": {
-            "type": "string",
-            "enum": ["TFY", "ENT", "VIS"]
-          },
-          "spbviTarget": {
-            "type": "string",
-            "enum": ["TFY", "ENT", "VIS"]
-          },
-          "channel": {
-            "type": "string",
-            "enum": ["web", "mobile"]
-          }
-        }
       }
     },
     "required": [

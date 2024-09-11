@@ -1,0 +1,22 @@
+{
+  "type": "array",
+  "properties": {
+    "detail": {
+      "type": "string",
+      "enum": ["T120"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["created"]
+    },
+    "moment": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "detail",
+    "status",
+    "moment"
+  ]
+}
