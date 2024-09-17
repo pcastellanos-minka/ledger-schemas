@@ -21,7 +21,7 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "^(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "^(caho|ccte|dbmo|dord|dbmi):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
@@ -31,31 +31,29 @@
                         "minLength": 1,
                         "maxLength": 140
                       },
-                      "personType": {
+                      "type": {
                         "type": "string",
                         "enum": [
                           "individual",
                           "business"
                         ]
                       },
-                      "personDocumentType": {
+                      "identificationType": {
                         "type": "string",
                         "enum": [
-                          "nidn",
-                          "txid",
-                          "othr"
+                          "cc", "ce", "nuip", "ppt", "nit", "pep", "pas", "otr"
                         ]
                       },
-                      "personDocumentNumber": {
+                      "identification": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 18
                       },
-                      "personContactEmail": {
+                      "emailAddress": {
                         "type": "string",
                         "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
                       },
-                      "personContactTel":{
+                      "mobileNumber":{
                         "type": "string",
                         "pattern":"^[0-9]{10}$"
                       }
@@ -74,17 +72,17 @@
                 "properties": {
                   "handle": {
                     "type": "string",
-                    "pattern": "^(svgs|cacc):\\d+@[a-zA-Z0-9_\\-+.]+$"
+                    "pattern": "^(caho|ccte|dbmo|dord|dbmi):\\d+@[a-zA-Z0-9_\\-+.]+$"
                   },
                   "custom": {
                     "type": "object",
                     "properties": {
-                      "personName": {
+                      "name": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 140
                       },
-                      "personType": {
+                      "type": {
                         "typ": "string",
                         "enum": [
                           "individual",
@@ -92,26 +90,24 @@
                           "government"
                         ]
                       },
-                      "personDocumentType": {
+                      "identificationType": {
                         "type": "string",
                         "enum": [
-                          "nidn",
-                          "txid",
-                          "othr"
+                          "cc", "ce", "nuip", "ppt", "nit", "pep", "pas", "otr"                          
                         ]
                       },
-                      "personDocumentNumber": {
+                      "identification": {
                         "type": "string",
                         "minLength": 1,
                         "maxLength": 18
                       },
-                      "personContactEmail": {
+                      "emailAddress": {
                         "type": "string",
                         "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
                       },
-                      "personContactTel":{
+                      "mobileNumber":{
                         "type": "string",
-                        "pattern":"^[0-9]{10}$"
+                        "pattern":""
                       },
                       "anchor": {
                         "type": "string",
@@ -119,7 +115,7 @@
                       }
                     },
                     "required": [
-                      "personName"
+                      "name"
                     ]
                   }
                 },

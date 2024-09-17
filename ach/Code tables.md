@@ -16,6 +16,7 @@
 | DORD |  | OrdinaryDeposits | Depósitos ordinarios |
 | DBMI |  | InclusiveSmallDeposits | Depósitos de bajo monto inclusivos |
 
+
 ### Definición de valores del tipo de documento (IdType)
 | CodeName | Intent map | Name |
 |----------|------------|------|
@@ -27,6 +28,8 @@
 | PEP |  | Permiso Especial de Permanencia |
 | PAS | ccpt | Pasaporte |
 | OTR | othr  | Otro |
+
+
 
 ### Definición de valores de SPBVI (spbviTarget y spbviSource)
 | ClearingSystemCode | CodeName | Name | Definition |
