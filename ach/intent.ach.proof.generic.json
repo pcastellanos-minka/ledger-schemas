@@ -1,0 +1,68 @@
+{
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "custom": {
+          "type": "object",
+          "properties": {
+            "detail": {
+              "type": "string",
+              "enum": ["T110","T120", "T130", "T140", "T210", "T213", "T215","T220", "T233", "T230","T235","T240", "T310", "T320","T410","T420","T430","T440","T510", "T520","T530","T540"]
+            },
+            "status": {
+              "type": "string",
+              "enum": ["initiated","created", "prepared","committed", "failed", "aborted", "rejected", "completed"]
+            },
+            "moment": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "deviceName": {
+              "type": "string"
+            },
+            "deviceHash": {
+              "type": "string"
+            },
+            "deviceIp": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "deviceType": {
+              "type": "string"
+            },
+            "anchorResolution": {
+              "type": "string",
+              "enum": ["qr", "anchor"]
+            },
+            "txId": {
+              "type": "string",
+              "pattern":"^(\\d{4}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01]))(\\d{9})(TFY|ENT|VIS)(\\d{15})$"
+            }
+          },
+          "required": [
+            "status",
+            "moment"
+          ]
+        },
+        "digest": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        },
+        "thread": {
+          "type": "string"
+        },
+        "moment": {
+          "type": "string"
+        },
+        "owners": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }

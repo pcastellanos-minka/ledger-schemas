@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 info:
   title: Minka Ledger API - Connect
   version: 2.14.0
@@ -12,7 +12,7 @@ info:
     url: http://docs.minka.io
   license:
     name: Mozilla Public License 2.0
-    identifier: MPL-2.0
+    url: https://www.mozilla.org/en-US/MPL/2.0/
 servers:
   - url: https://ldg-dev.one/api/v2
     description: Development server
@@ -44,6 +44,13 @@ paths:
   /intents/{id}/proofs:
     post:
       summary: Agregar prueba a un intento de pago
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+          description: identificador del intento de pago
       tags:
         - IntentProof
       requestBody:
@@ -52,7 +59,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ProofAborted"
+              $ref: "#/components/schemas/CreateIntentRequest"
+      responses:
+        "201":
+          description: signed Intent
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateIntentResponse"
 components:
   schemas:
     CreateIntentRequest:
@@ -69,7 +83,30 @@ components:
             proofs:
               type: array
               items:
-                $ref: "#/components/schemas/IntentMeta"
+                $ref: "#/components/schemas/proof"
+            routed:
+              type: boolean
+              description: Indica si el intento fue enrutado.
+              example: true
+            status:
+              type: string
+              description: El estado del intento.
+              example: "completed"
+            thread:
+              type: string
+              description: El identificador del hilo.
+              example: "7RFbLLoTabUa7zX1W"
+            moment:
+              type: string
+              format: date-time
+              description: La marca de tiempo del evento meta.
+              example: "2024-08-30T03:34:19.938Z"
+            owners:
+              type: array
+              items:
+                type: string
+                description: Las claves públicas de los propietarios.
+                example: "rpteZ4kOuiB6a9/KHCqOc8HcW5J20Hrb5D4ZCbZYpSE="
     CreateIntentResponse:
       type: object
       properties:
@@ -84,43 +121,37 @@ components:
             proofs:
               type: array
               items:
-                $ref: "#/components/schemas/IntentMeta"
-    IntentStatus:
-      type: object
-      properties:
-        luid:
-          type: string
-          description: El ID local único del intento.
-          example: "$int.3vf2J78sptIkQr2lq"
-        routed:
-          type: boolean
-          description: Indica si el intento fue enrutado.
-          example: true
-        status:
-          type: string
-          description: El estado del intento.
-          example: "completed"
-        thread:
-          type: string
-          description: El identificador del hilo.
-          example: "7RFbLLoTabUa7zX1W"
-        moment:
-          type: string
-          format: date-time
-          description: La marca de tiempo del evento meta.
-          example: "2024-08-30T03:34:19.938Z"
-        owners:
-          type: array
-          items:
-            type: string
-            description: Las claves públicas de los propietarios.
-            example: "rpteZ4kOuiB6a9/KHCqOc8HcW5J20Hrb5D4ZCbZYpSE="
+                $ref: "#/components/schemas/proof"
+            routed:
+              type: boolean
+              description: Indica si el intento fue enrutado.
+              example: true
+            status:
+              type: string
+              description: El estado del intento.
+              example: "completed"
+            thread:
+              type: string
+              description: El identificador del hilo.
+              example: "7RFbLLoTabUa7zX1W"
+            moment:
+              type: string
+              format: date-time
+              description: La marca de tiempo del evento meta.
+              example: "2024-08-30T03:34:19.938Z"
+            owners:
+              type: array
+              items:
+                type: string
+                description: Las claves públicas de los propietarios.
+                example: "rpteZ4kOuiB6a9/KHCqOc8HcW5J20Hrb5D4ZCbZYpSE="
+  
     IntentData:
       type: object
       properties:
         handle:
           type: string
-          description: El identificador del intento.
+          description: El identificador del request. Este campo garantiza la idempotencia del request. Se sugiere usar GUID
           example: k3PdrLoh1m1BnKlr0Kou7
         claims:
           type: array
@@ -130,12 +161,10 @@ components:
           type: string
           description: Referencia a esquema de del intento.
           example: transfer
-        custom:
-          $ref: "#/components/schemas/IntentCustom"
         access:
           type: array
           items:
-            - $ref: "#/components/schemas/Access"
+            $ref: "#/components/schemas/Access"
     Access:
       type: object
       properties:
@@ -177,62 +206,15 @@ components:
           $ref: "#/components/schemas/Symbol"
         target:
           $ref: "#/components/schemas/Target"
-    IntentMeta:
-      type: object
-      properties:
-        proofs:
-          type: array
-          items:
-            $ref: "#/components/schemas/Proof"
-        routed:
-          type: boolean
-          description: Indica si el intento fue enrutado.
-          example: true
-        status:
-          type: string
-          description: El estado del intento.
-          example: "completed"
-        thread:
-          type: string
-          description: El identificador del hilo.
-          example: "7RFbLLoTabUa7zX1W"
-        moment:
-          type: string
-          format: date-time
-          description: La marca de tiempo del evento meta.
-          example: "2024-08-30T03:34:19.938Z"
-        owners:
-          type: array
-          items:
-            type: string
-            description: Las claves públicas de los propietarios.
-            example: "rpteZ4kOuiB6a9/KHCqOc8HcW5J20Hrb5D4ZCbZYpSE="
-    IntentCustom:
+        custom:
+          $ref: "#/components/schemas/claimCustom"
+    claimCustom:
       type: object
       properties:
         description:
           type: string
-          description: Descripción personalizada del intento.
+          description: Descripción personalizada de la transacción.
           example: "Primer intento de pago"
-    Device:
-      type: object
-      properties:
-        deviceName:
-          type: string
-          description: Nombre del dispositivo
-          example: d7bb29de680d2b0c37f2c03215565307c60fbf7a8d15f253fa74d9d5f60fe632
-        deviceHash:
-          type: string
-          description: Hash del dispositivo
-          example: d7bb29de680d2b0c37f2c03215565307c60fbf7a8d15f253fa74d9d5f60fe632
-        deviceIp:
-          type: string
-          description: Dirrecion IP de dispositivo originador de Intento de pago
-          example:
-        deviceType:
-          type: string
-          description: Tipo de dispositivo (Mobile, Web, SecureChannel, AccessToken, ..)
-          example: Mobile # TODO: Add ISO reference options
     Source:
       type: object
       properties:
@@ -241,38 +223,32 @@ components:
         handle:
           type: string
           description: El identificador del participante fuente.
-          example: "svgs:1001001345@teslabank.io"
+          example: "caho:1001001345@teslabank.io"
     # TODO: Source custom should have OneOf options
     SourceCustom:
       type: object
       properties:
-        person:
-          $ref: "#/components/schemas/SourceCustomPerson"
-    SourceCustomPerson:
-      type: object
-      properties:
-        personType:
+        type:
           type: string
           description: El tipo de entidad del participante fuente.
           example: "Natural" # Add types of person - legal, natural based on ISO
-        personName:
+        name:
           type: string
           description: El nombre del participante fuente.
           example: Nikola Tesla
-        personDocumentType:
+        identificationType:
           type: string
-          description: El tipo de identificación del participante fuente.
-          # TODO: Add validations based on ISO
-          example: "nidn"
-        personDocumentNumber:
+          description: El tipo de identificación del participante fuente
+          example: "cc"
+        identification:
           type: string
           description: El número de identificación del participante fuente.
           example: "429493434"
-        personContactTel:
+        mobileNumber:
           type: string
-          description: Telefono de contacto
-          example: +385914242424
-        personContactEmail:
+          description: Telefono de contacto, con el código del país
+          example: "+385914242424"
+        emailAddress:
           type: string
           description: El punto de anclaje, como un método de contacto, del participante fuente.
           example: nikola@tesla.hr
@@ -284,44 +260,38 @@ components:
         handle:
           type: string
           description: El identificador del participante objetivo.
-          example: "svgs:1001009422@mintbank.dev"
-    # TODO: Target custom should have OneOf (maybe whole object)
+          example: "caho:1001009422@mintbank.dev"
     TargetCustom:
       type: object
       properties:
-        person:
-          $ref: "#/components/schemas/TargetCustomPerson"
-    TargetCustomPerson:
-      type: object
-      properties:
-        personType:
+        type:
           type: string
           description: El tipo de entidad del participante fuente.
           example: "Natural" # Add types of person - legal, natural based on ISO
-        personName:
+        name:
           type: string
           description: El nombre del participante fuente.
           example: "Simon Bolivar"
-        personDocumentType:
+        identificationType:
           type: string
           description: El tipo de identificación del participante fuente.
           # TODO: Add validations based on ISO
-          example: "nidn"
-        personDocumentNumber:
+          example: "cc"
+        identification:
           type: string
           description: El número de identificación del participante fuente.
           example: "429493434"
-        personContactTel:
+        mobileNumber:
           type: string
           description: Contacto de la persona - telefono.
           example: "+573504242424"
-        personContactEmail:
+        emailAddress:
           type: string
           description: Contacto de la persona - email.
           example: "simon@gmail.com"
         anchor:
           type: string
-          description: Llave usado para resolver el destino (target anchor).
+          description: Llave usada para resolver el destino (target anchor).
           example: tel:+57350424242
     # We should add examples OneOf
     Symbol:
@@ -330,62 +300,12 @@ components:
         handle:
           type: string
           description: El identificador del símbolo de la moneda.
-          example: "usd"
-    Proof:
-      type: object
-      properties:
-        created:
-          $ref: "#/components/schemas/ProofCreated"
-        device:
-          $ref: "#/components/schemas/ProofDevice"
-    ProofAborted:
+          example: "cop"
+    proof:
       type: object
       properties:
         custom:
-          $ref: "#/components/schemas/ProofAbortedCustom"
-        signature:
-          $ref: "#/components/schemas/ProofSignature"
-    ProofAbortedCustom:
-      type: object
-      properties:
-        moment:
-          type: string
-          format: date-time
-          description: La marca de tiempo de la prueba.
-          example: "2024-08-30T03:34:19.425Z"
-        status:
-          type: string
-          description: El estado de la prueba.
-          example: "aborted"
-    ProofCreated:
-      type: object
-      properties:
-        custom:
-          $ref: "#/components/schemas/ProofCreatedCustom"
-        signature:
-          $ref: "#/components/schemas/ProofSignature"
-    ProofCreatedCustom:
-      type: object
-      properties:
-        moment:
-          type: string
-          format: date-time
-          description: La marca de tiempo de la prueba.
-          example: "2024-08-30T03:34:19.425Z"
-        status:
-          type: string
-          description: El estado de la prueba.
-          example: "created"
-    ProofDevice:
-      type: object
-      properties:
-        custom:
-          $ref: "#/components/schemas/Device"
-        signature:
-          $ref: "#/components/schemas/ProofSignature"
-    ProofSignature:
-      type: object
-      properties:
+          $ref: "#/components/schemas/proofCustom"
         digest:
           type: string
           description: El digest criptográfico de la prueba.
@@ -402,3 +322,38 @@ components:
           type: string
           description: El resultado del proceso de la prueba.
           example: "1iuU0QxYh/FamG2F5c4qrk3+4nbMOz7MeIRzDiO4FZG2syIE4F1Xu7KgVk0qkwk9RENkXlOr468T34FgbHR7Bg=="
+    proofCustom:
+      type: object
+      properties:
+        moment:
+          type: string
+          format: date-time
+          description: La marca de tiempo de la prueba.
+          example: "2024-08-30T03:34:19.425Z"
+        status:
+          type: string
+          description: El estado de la prueba.
+          example: "initiated"
+        detail:
+          type: string
+          description: Nombre de la marca de tiempo 
+          example: "T110"
+        deviceName:
+          type: string
+          description: Nombre del dispositivo
+          example: d7bb29de680d2b0c37f2c03215565307c60fbf7a8d15f253fa74d9d5f60fe632
+        deviceHash:
+          type: string
+          description: Hash del dispositivo
+          example: d7bb29de680d2b0c37f2c03215565307c60fbf7a8d15f253fa74d9d5f60fe632
+        deviceIp:
+          type: string
+          description: Dirrecion IP de dispositivo originador de Intento de pago
+          example: 192.12.12.12
+        deviceType:
+          type: string
+          description: Tipo de dispositivo (Mobile, Web, SecureChannel, AccessToken, ..)
+          example: Mobile
+      
+   
+   

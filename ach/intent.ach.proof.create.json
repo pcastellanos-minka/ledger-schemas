@@ -1,22 +1,46 @@
 {
-  "type": "array",
+  "type": "object",
   "properties": {
-    "detail": {
-      "type": "string",
-      "enum": ["T120"]
+    "custom": {
+      "type": "object",
+      "properties": {
+        "detail": {
+          "type": "string",
+          "enum": ["T120"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["created"]
+        },
+        "moment": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "detail",
+        "status",
+        "moment"
+      ]
     },
-    "status": {
-      "type": "string",
-      "enum": ["created"]
+    "digest": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "thread": {
+      "type": "string"
     },
     "moment": {
-      "type": "string",
-      "format": "date-time"
+      "type": "string"
+    },
+    "owners": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
-  "required": [
-    "detail",
-    "status",
-    "moment"
-  ]
+  "required": ["custom", "digest", "method", "thread", "moment", "owners"]
 }
