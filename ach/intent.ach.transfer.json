@@ -51,7 +51,7 @@
                       },
                       "emailAddress": {
                         "type": "string",
-                        "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+                        "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
                       },
                       "mobileNumber": {
                         "type": "string",
@@ -83,7 +83,7 @@
                         "maxLength": 140
                       },
                       "type": {
-                        "typ": "string",
+                        "type": "string",
                         "enum": [
                           "individual",
                           "business",
@@ -103,7 +103,7 @@
                       },
                       "emailAddress": {
                         "type": "string",
-                        "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$"
+                        "pattern":"^[a-zA-Z0-9]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
                       },
                       "mobileNumber":{
                         "type": "string",
