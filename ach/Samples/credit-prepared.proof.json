@@ -1,0 +1,12 @@
+{
+    "method": "ed25519-v2",
+    "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc=",
+    "digest": "c8dae754130ea59ed5c1cb141c05277604d283500500e02d68630a3b480aedb0",
+    "result": "5C1aIhs8Hb4chntHLS+6EUJ5cAXIRseYFH+Vb3E3tUK88LKpyhz0CeE0MD0eedF1I6Grp1h4WRWgFJTnC7BYDA==",
+    "custom": {
+        "moment": "2024-09-25T23:13:54.442Z",
+        "handle": "cre_NPH7CnifD6MOTYuwH",
+        "status": "prepared",
+        "coreId": "55"
+    }
+}

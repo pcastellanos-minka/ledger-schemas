@@ -41,7 +41,7 @@
                       "identificationType": {
                         "type": "string",
                         "enum": [
-                          "cc", "ce", "nuip", "ppt", "nit", "pep", "pas", "otr"
+                          "cc", "ce", "nuip", "tdi", "ppt", "nit", "pep", "pas", "otr"
                         ]
                       },
                       "identification": {
@@ -93,7 +93,7 @@
                       "identificationType": {
                         "type": "string",
                         "enum": [
-                          "cc", "ce", "nuip", "ppt", "nit", "pep", "pas", "otr"                          
+                          "cc", "ce", "nuip", "tdi", "ppt", "nit", "pep", "pas", "otr"                          
                         ]
                       },
                       "identification": {

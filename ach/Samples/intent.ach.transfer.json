@@ -1,0 +1,74 @@
+{
+  "hash": "fac3673ec879f4c2de75254a5ff267db558d4f8d067e03713697d94bebaaf8cf",
+  "data": {
+    "handle": "vVdKVKAjFzzZd02sI8k7X",
+    "schema": "intent.send.regulatory",
+    "claims": [
+      {
+        "action": "transfer",
+        "source": {
+          "handle": "caho:121212@bbva.co",
+          "custom": {
+            "name": "Alejandra Medina",
+            "type": "individual",
+            "identificationType": "cc",
+            "identification": "15743215698",
+            "emailAddress": "aleja@gmail.com",
+            "mobileNumber": "+573126549870"
+          }
+        },
+        "target": {
+          "handle": "caho:424242@bbva.co",
+          "custom": {
+            "name": "Carlos Cortes",
+            "type": "individual",
+            "identificationType": "cc",
+            "identification": "1070654678",
+            "emailAddress": "carlos@gmail.com",
+            "mobileNumber": "+573214569870"
+          }
+        },
+        "symbol": {
+          "handle": "cop"
+        },
+        "amount": 12000000,
+        "custom": {
+          "description": "pago cena"
+        }
+      }
+    ],
+    "config": {
+      "commit": "auto"
+    },
+    "access": [
+      {
+        "action": "any",
+        "signer": {
+          "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc="
+        }
+      },
+      {
+        "action": "read",
+        "bearer": {
+          "$signer": {
+            "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc="
+          }
+        }
+      }
+    ]
+  },
+  "meta": {
+    "proofs": [
+      {
+        "method": "ed25519-v2",
+        "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc=",
+        "digest": "6310e77645c20674facddcc142a31276c50feee48b9bc637a7b8bd2b19fb6a9a",
+        "result": "hR/1xMQaXxggmf2FGL2InnZau+owpjfzOfACOEm3CgHFmm7tu1uoE0jDBXKYtsrFGd6KGw8fS0/LNRinBxLMBA==",
+        "custom": {
+          "moment": "2024-09-25T23:02:07.907Z",
+          "status": "created"
+        }
+      }
+    ]
+  }
+}

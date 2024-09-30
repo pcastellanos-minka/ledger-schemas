@@ -1,0 +1,157 @@
+{
+    "data": {
+        "action": "commit",
+        "handle": "cre_NPH7CnifD6MOTYuwH",
+        "intent": {
+            "data": {
+                "access": [
+                    {
+                        "action": "any",
+                        "signer": {
+                            "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc="
+                        }
+                    },
+                    {
+                        "action": "read",
+                        "bearer": {
+                            "$signer": {
+                                "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc="
+                            }
+                        }
+                    }
+                ],
+                "claims": [
+                    {
+                        "action": "transfer",
+                        "amount": 12000000,
+                        "custom": {
+                            "description": "pago cena"
+                        },
+                        "source": {
+                            "custom": {
+                                "name": "Alejandra Medina",
+                                "type": "individual",
+                                "emailAddress": "aleja@gmail.com",
+                                "mobileNumber": "+573126549870",
+                                "identification": "15743215698",
+                                "identificationType": "cc"
+                            },
+                            "handle": "caho:121212@bbva.co"
+                        },
+                        "symbol": {
+                            "handle": "cop"
+                        },
+                        "target": {
+                            "custom": {
+                                "name": "Carlos Cortes",
+                                "type": "individual",
+                                "emailAddress": "carlos@gmail.com",
+                                "mobileNumber": "+573214569870",
+                                "identification": "1070654678",
+                                "identificationType": "cc"
+                            },
+                            "handle": "caho:424242@bbva.co"
+                        }
+                    }
+                ],
+                "config": {
+                    "commit": "auto"
+                },
+                "handle": "vVdKVKAjFzzZd02sI8k7X",
+                "schema": "transfer"
+            },
+            "hash": "fac3673ec879f4c2de75254a5ff267db558d4f8d067e03713697d94bebaaf8cf",
+            "luid": "$int._iaOt8E-N7vzAJI8y",
+            "meta": {
+                "moment": "2024-09-25T23:02:08.402Z",
+                "owners": [
+                    "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc="
+                ],
+                "proofs": [
+                    {
+                        "custom": {
+                            "moment": "2024-09-25T23:02:07.907Z",
+                            "status": "created"
+                        },
+                        "digest": "6310e77645c20674facddcc142a31276c50feee48b9bc637a7b8bd2b19fb6a9a",
+                        "method": "ed25519-v2",
+                        "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc=",
+                        "result": "hR/1xMQaXxggmf2FGL2InnZau+owpjfzOfACOEm3CgHFmm7tu1uoE0jDBXKYtsrFGd6KGw8fS0/LNRinBxLMBA=="
+                    },
+                    {
+                        "custom": {
+                            "luid": "$int._iaOt8E-N7vzAJI8y",
+                            "moment": "2024-09-25T23:02:08.396Z",
+                            "status": "created"
+                        },
+                        "digest": "6fc07f3c7b3965f0d4f9d87f2b665d4311798bdbce7b27da3668ed0c91a7be83",
+                        "method": "ed25519-v2",
+                        "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+                        "result": "GmkpLgwxZiWU3+SgvDCyg2RqFnYqs8epF8+yQWYo/LgZCnSKrjSVlG2cKispef72Ow4rXiM13eHfTUMhjCpxAA=="
+                    },
+                    {
+                        "custom": {
+                            "coreId": "22",
+                            "handle": "deb_C7fw-OkdXQemMXOF7",
+                            "moment": "2024-09-25T23:07:49.725Z",
+                            "status": "prepared"
+                        },
+                        "digest": "60aca521b032c4ba4b33da08bfe9c0736b41c89df90484ca1a184ab0ac096998",
+                        "method": "ed25519-v2",
+                        "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc=",
+                        "result": "DK66XcZk2s+GNG81lao/9SFoHcqIgKD8emlLq4hnSmM0FPFBOiZM1XC1wk/GYdwlHzwYQ7Y6tq1ww/7AnU9mAQ=="
+                    },
+                    {
+                        "custom": {
+                            "coreId": "55",
+                            "handle": "cre_NPH7CnifD6MOTYuwH",
+                            "moment": "2024-09-25T23:13:54.442Z",
+                            "status": "prepared"
+                        },
+                        "digest": "c8dae754130ea59ed5c1cb141c05277604d283500500e02d68630a3b480aedb0",
+                        "method": "ed25519-v2",
+                        "public": "AJKxhEWQV63oBLrTAdO594FQccuwPDn0rbVBPMy0VNc=",
+                        "result": "5C1aIhs8Hb4chntHLS+6EUJ5cAXIRseYFH+Vb3E3tUK88LKpyhz0CeE0MD0eedF1I6Grp1h4WRWgFJTnC7BYDA=="
+                    },
+                    {
+                        "custom": {
+                            "moment": "2024-09-25T23:13:55.012Z",
+                            "status": "prepared"
+                        },
+                        "digest": "aab065900b8ccb8a6584add80fa0f152c4fefe8eef0ee92330bbeefaa82ff8e5",
+                        "method": "ed25519-v2",
+                        "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+                        "result": "Gkx5cGSLCHmEm7cGy++L2dfiQnmgTw5lHRBkrFkQR/18FLwjq8skdPmyLfGTAu45tXjf4IO02xge6acmNBMzCw=="
+                    },
+                    {
+                        "custom": {
+                            "moment": "2024-09-25T23:13:55.185Z",
+                            "status": "committed"
+                        },
+                        "digest": "80f1efbfc1135b44d45c5ecb9408cfd93b31c1b6572ba61fdc8bfa67caa2850f",
+                        "method": "ed25519-v2",
+                        "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+                        "result": "yNW4ZETW22Ge+DCLJl/IBLNDmq/0f5bc8ZWpbpSnJAyIR0bFwbUr+RAyy+CrZ0FW0SbcCOfpXS7ZHvchByU8BQ=="
+                    }
+                ],
+                "routed": true,
+                "status": "committed",
+                "thread": "XCWvXwPYfNd_KTDCi"
+            }
+        }
+    },
+    "hash": "305acc968505d31628e5e94b9f38209b3d5242924709b6f737ac39ed0fcffa7a",
+    "meta": {
+        "proofs": [
+            {
+                "custom": {
+                    "moment": "2024-09-25T23:13:55.337Z"
+                },
+                "digest": "a74521a3b20e1ce172964cdf6455d7244c3309041575fdc5d7340b4125f566a9",
+                "method": "ed25519-v2",
+                "public": "W8iGfZQKAsqS8IOzfXl7+cYVulISyaGKA8E6tP7w0gc=",
+                "result": "3HB/EfzbiTarHxFk8/6tirjQezAIkoLW8PR1R+K+pQ0hGHGv5eBl9VSgw/dAV4vFf3OtD7ky66ZB0B3L7T8OAA=="
+            }
+        ]
+    }
+}

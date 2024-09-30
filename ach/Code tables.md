@@ -23,6 +23,7 @@
 | CC | nidn | Cédula de ciudadanía |
 | CE | arnu | Cédula de extranjería |
 | NUIP |  | Número Único de Identificación Personal (NUIP) |
+| TDI |  | Tarjeta de identiddad (TDI) |
 | PPT |  | Permiso de Protección Temporal (PPT) |
 | NIT | txid | Número de Identificación Tributaria sin dígito de verificación |
 | PEP |  | Permiso Especial de Permanencia |
